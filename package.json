@@ -1,0 +1,25 @@
+{
+  "name": "serverwithexpress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Libre255/CloudDev-Web-Lab-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Libre255/CloudDev-Web-Lab-2/issues"
+  },
+  "homepage": "https://github.com/Libre255/CloudDev-Web-Lab-2#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  }
+}
