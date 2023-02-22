@@ -10,9 +10,46 @@ nav{
     width: fit-content;
     font-size: 2em;
 }
+nav > a{
+    cursor: pointer;
+}
 
 #ShowDetails{
     border: 1px solid red;
     height:30vw;
     display: none;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#ShowDetails > article{
+    padding:3vw;
+    border: 1px solid yellow;
+    width: fit-content;
+   
+}
+#AddClothesForm{
+    margin:0 auto;
+    border: 1px solid yellow;
+}
+#AddClothesForm>input{
+    width: 15vw;
+}
+#AddClothesForm>Select{
+    margin-top: 0.4vw;
+}
+#AddClothesResult{
+    margin: 0 auto;
+    font-weight: bolder;
+    font-size: 2em;
+}
+
+#deletForm{
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#deletResult{
+    margin:0 auto;
 }

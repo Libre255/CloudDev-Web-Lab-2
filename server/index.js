@@ -6,7 +6,7 @@ let app = express();
 const serverPORT = process.env.PORT || 8080;
 
 //Data
-let ListOfClothers = [
+let ListofClothes = [
  { id:1, type:"t-shirt", name:"Fire sun"},
  { id:uniqid(), type:"pants", name:"Zem"},
  { id:uniqid(), type:"t-shirt", name:"Rainbow"},
@@ -19,23 +19,25 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 //APIs
-app.get('/getClothes', (req, res) =>{
-    res.json(ListOfClothers);
+app.get('/getclothes', (req, res) =>{
+    res.json(ListofClothes);
 })
-app.post('/AddClothes', (req, res) => { 
+app.post('/addclothes', (req, res) => { 
     const NewClothes = {
         id:uniqid(),
-        type:req.body.clotheType,
-        name:req.body.clotheName
+        type:req.body.type,
+        name:req.body.name
     }
-    ListOfClothers(NewClothes)
-    res.json(NewClothes)
+    ListofClothes.push(NewClothes)
+    res.json({addedItem:NewClothes,
+        UpdatedList:ListofClothes})
 })
 app.delete('/deletclothes', (req, res) => {
-    let foundID = ListOfClothers.find(clothes => clothes.id === req.body.id)
+    let foundID = ListofClothes.find(clothes => toString(clothes.id) === toString(req.body.id))
     if(foundID){
-        ListOfClothers = ListOfClothers.filter(clothes => clothes.id != req.body.id);
-        res.json({result:"Deleted succesfully"})
+        ListofClothes = ListofClothes.filter(clothes => clothes.id != req.body.id);
+        res.json({result:"Deleted succesfully",
+        newList:ListofClothes})
     }else{
         res.json({result:"Couldnt find the id"})
     }
